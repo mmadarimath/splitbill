@@ -1,0 +1,255 @@
+/* =========================
+   DESIGN TOKENS
+========================= */
+
+:root {
+  --bg-main: #f9fafb;
+  --bg-surface: #ffffff;
+  --border-soft: #e5e7eb;
+
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+
+  --accent: #2563eb;
+  --accent-soft: #eff6ff;
+
+  --success: #059669;
+  --danger: #dc2626;
+
+  --radius: 14px;
+}
+
+/* =========================
+   RESET & BASE
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--bg-main);
+  color: var(--text-primary);
+}
+
+/* =========================
+   PAGE LAYOUT
+========================= */
+
+.page {
+  max-width: 110rem;
+  margin: 0 auto;
+  padding: 4rem 2rem 6rem;
+}
+
+.page-title {
+  font-size: 2.4rem;
+  font-weight: 600;
+  margin-bottom: 3.2rem;
+}
+
+/* =========================
+   APP LAYOUT
+========================= */
+
+.app {
+  display: grid;
+  grid-template-columns: 36rem 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+/* =========================
+   SIDEBAR CARD
+========================= */
+
+.sidebar {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius);
+  padding: 2.4rem;
+
+  display: flex;
+  flex-direction: column;
+  min-height: 52rem;
+}
+
+/* =========================
+   FRIEND LIST
+========================= */
+
+.friendlist {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+}
+
+/* Empty state */
+.friendlist-empty {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0.6rem;
+  color: var(--text-secondary);
+}
+
+.friendlist-empty p {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+/* =========================
+   FRIEND ROW
+========================= */
+
+.sidebar li {
+  display: grid;
+  grid-template-columns: 4.4rem 1fr auto;
+  align-items: center;
+  gap: 1.6rem;
+
+  padding: 1.4rem;
+  border-radius: 12px;
+  transition: background 0.2s ease;
+}
+
+.sidebar li:hover,
+.sidebar li.selected {
+  background: var(--accent-soft);
+}
+
+.sidebar li img {
+  width: 4.4rem;
+  height: 4.4rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.friend-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.friend-info h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.friend-info p {
+  font-size: 1.3rem;
+  color: var(--text-secondary);
+}
+
+.green {
+  color: var(--success);
+}
+
+.red {
+  color: var(--danger);
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.button {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0.7rem 2rem;
+  min-height: 3.2rem;
+
+  border-radius: 8px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  line-height: 1;
+
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+
+.sidebar > .button {
+  margin-top: auto;
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.4rem;
+}
+
+/* =========================
+   FORMS
+========================= */
+
+form {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius);
+  padding: 3.2rem;
+}
+
+.form-add-friend {
+  margin-bottom: 1.6rem;
+}
+
+.form-split-bill {
+  max-width: 36rem;
+}
+
+.form-split-bill h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 2.4rem;
+}
+
+/* =========================
+   FORM ELEMENTS
+========================= */
+
+label {
+  display: block;
+  font-size: 1.3rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.6rem;
+}
+
+input,
+select {
+  width: 100%;
+  font-family: inherit;
+  font-size: 1.4rem;
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-soft);
+  margin-bottom: 1.6rem;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+}
+
+input:disabled {
+  background: #f3f4f6;
+}
