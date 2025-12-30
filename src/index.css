@@ -42,7 +42,7 @@ body {
 }
 
 /* =========================
-   PAGE LAYOUT
+   PAGE
 ========================= */
 
 .page {
@@ -65,11 +65,10 @@ body {
   display: grid;
   grid-template-columns: 36rem 1fr;
   gap: 4rem;
-  align-items: start;
 }
 
 /* =========================
-   SIDEBAR CARD
+   SIDEBAR
 ========================= */
 
 .sidebar {
@@ -91,45 +90,39 @@ body {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
+  align-items: center; /* center cards */
+  gap: 1.2rem;
   margin-bottom: 2rem;
 }
 
-/* Empty state */
-.friendlist-empty {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  gap: 0.6rem;
-  color: var(--text-secondary);
-}
-
-.friendlist-empty p {
-  font-size: 1.6rem;
-  font-weight: 600;
-}
-
 /* =========================
-   FRIEND ROW
+   FRIEND CARD
 ========================= */
 
 .sidebar li {
-  display: grid;
-  grid-template-columns: 4.4rem 1fr auto;
-  align-items: center;
-  gap: 1.6rem;
+  width: 100%;
+  max-width: 30rem;
+  margin: 0 auto;
 
-  padding: 1.4rem;
+  background: var(--accent-soft);
   border-radius: 12px;
-  transition: background 0.2s ease;
+  padding: 1.6rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+
+  overflow: hidden;
 }
 
-.sidebar li:hover,
-.sidebar li.selected {
-  background: var(--accent-soft);
+/* =========================
+   TOP ROW (AVATAR + TEXT)
+========================= */
+
+.friend-top {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
 }
 
 .sidebar li img {
@@ -138,6 +131,10 @@ body {
   border-radius: 50%;
   object-fit: cover;
 }
+
+/* =========================
+   FRIEND INFO
+========================= */
 
 .friend-info {
   display: flex;
@@ -152,7 +149,7 @@ body {
 
 .friend-info p {
   font-size: 1.3rem;
-  color: var(--text-secondary);
+  white-space: nowrap; /* ONE LINE */
 }
 
 .green {
@@ -161,6 +158,16 @@ body {
 
 .red {
   color: var(--danger);
+}
+
+/* =========================
+   ACTION BUTTONS
+========================= */
+
+.friend-actions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6rem;
 }
 
 /* =========================
@@ -176,18 +183,41 @@ body {
   align-items: center;
   justify-content: center;
 
-  padding: 0.7rem 2rem;
+  padding: 0.7rem 0.6rem;
   min-height: 3.2rem;
 
   border-radius: 8px;
   font-size: 1.3rem;
   font-weight: 600;
-  line-height: 1;
 
   cursor: pointer;
-  white-space: nowrap;
 }
 
+/* Edit */
+
+.button.edit {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--border-soft);
+}
+
+.button.edit:hover {
+  background: var(--accent-soft);
+}
+
+/* Delete */
+
+.button.danger {
+  background: transparent;
+  color: var(--danger);
+  border: 1px solid var(--border-soft);
+}
+
+.button.danger:hover {
+  background: rgba(220, 38, 38, 0.08);
+}
+
+/* Sidebar bottom button */
 
 .sidebar > .button {
   margin-top: auto;
@@ -252,4 +282,14 @@ select:focus {
 
 input:disabled {
   background: #f3f4f6;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+  .app {
+    grid-template-columns: 1fr;
+  }
 }
